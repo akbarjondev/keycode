@@ -1,12 +1,15 @@
 // variables
-var elKeycodeNum = document.querySelector('.keycode__num');
-var elKeycodeKeyboard = document.querySelector('.keycode__keyboard');
+var elKeycode = document.querySelector('.keycode');
+var elKeycodeNum = elKeycode.querySelector('.keycode__num');
+var elKeycodeKeyboard = elKeycode.querySelector('.keycode__keyboard');
+
+if(document.body.clientWidth < 768) {
+	elKeycode.textContent = 'Only computers!'
+}
 
 document.body.addEventListener('keydown', (evt) => {
 	evt.preventDefault();
 
 	elKeycodeNum.textContent = evt.which;
 	elKeycodeKeyboard.textContent = evt.code;
-
-	console.log(evt);
 });
